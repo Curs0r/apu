@@ -1,0 +1,8 @@
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\AllowedPlacesUtility\AllowedPlacesUtility\bin\Debug\AllowedPlaces Utility.exe.config
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\AllowedPlacesUtility\AllowedPlacesUtility\bin\Debug\AllowedPlaces Utility.exe
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\AllowedPlacesUtility\AllowedPlacesUtility\bin\Debug\AllowedPlaces Utility.pdb
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\AllowedPlacesUtility\AllowedPlacesUtility\obj\Debug\APU.Form1.resources
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\AllowedPlacesUtility\AllowedPlacesUtility\obj\Debug\APU.Properties.Resources.resources
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\AllowedPlacesUtility\AllowedPlacesUtility\obj\Debug\AllowedPlacesUtility.csproj.GenerateResource.Cache
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\AllowedPlacesUtility\AllowedPlacesUtility\obj\Debug\AllowedPlaces Utility.exe
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\AllowedPlacesUtility\AllowedPlacesUtility\obj\Debug\AllowedPlaces Utility.pdb

@@ -1,0 +1,12 @@
+c:\users\owner\documents\visual studio 2017\Projects\WindowsFormsApp1\WindowsFormsApp1\obj\Release\WindowsFormsApp1.Form1.resources
+c:\users\owner\documents\visual studio 2017\Projects\WindowsFormsApp1\WindowsFormsApp1\obj\Release\APU.Properties.Resources.resources
+c:\users\owner\documents\visual studio 2017\Projects\WindowsFormsApp1\WindowsFormsApp1\obj\Release\AllowedPlacesUtility.csproj.GenerateResource.Cache
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\AllowedPlacesUtility\AllowedPlacesUtility\obj\Release\AllowedPlacesUtility.csprojResolveAssemblyReference.cache
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\AllowedPlacesUtility\AllowedPlacesUtility\obj\Release\APU.Properties.Resources.resources
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\AllowedPlacesUtility\AllowedPlacesUtility\obj\Release\AllowedPlacesUtility.csproj.GenerateResource.Cache
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\AllowedPlacesUtility\AllowedPlacesUtility\obj\Release\APU.Form1.resources
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\AllowedPlacesUtility\AllowedPlacesUtility\bin\Release\AllowedPlaces Utility.exe.config
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\AllowedPlacesUtility\AllowedPlacesUtility\bin\Release\AllowedPlaces Utility.exe
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\AllowedPlacesUtility\AllowedPlacesUtility\bin\Release\AllowedPlaces Utility.pdb
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\AllowedPlacesUtility\AllowedPlacesUtility\obj\Release\AllowedPlaces Utility.exe
+C:\Users\Owner\Documents\Visual Studio 2017\Projects\AllowedPlacesUtility\AllowedPlacesUtility\obj\Release\AllowedPlaces Utility.pdb
