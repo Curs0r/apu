@@ -1,5 +1,4 @@
-# apu
-AllowedPlaces Utility for CMS 2018
+# AllowedPlaces Utility for CMS2018
 A simple utility for changing the locations that cars appear in Car Mechanic Simulator 2018
 
 Copyright 2017 Curs0r - dulljon@yahoo.com
