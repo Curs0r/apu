@@ -14,44 +14,50 @@ namespace APU
             InitializeComponent();
         }
 
-        private void btnApply_Click(object sender, EventArgs e)
+        private void SaveCar(Car c)
         {
-            if (lvwCars.SelectedItems.Count > 0)
+            string[] lines = File.ReadAllLines(c.Path);
+            int i = 0;
+            foreach (var line in lines)
             {
-                Car c = (lvwCars.SelectedItems[0].Tag as Car);
-                string[] lines = File.ReadAllLines(c.Path);
-                int i = 0;
-                foreach (var line in lines)
+                if (line.StartsWith("allowedPlaces"))
                 {
-                    if (line.StartsWith("allowedPlaces"))
+                    lines[i] = line.Replace("Junkyard", "").Replace("Auction", "").Replace("Shed", "").Replace("Salon", "").Replace(",", "");
+                    if (c.Junkyard)
                     {
-                        lines[i] = line.Replace("Junkyard","").Replace("Auction", "").Replace("Shed", "").Replace("Salon", "").Replace(",", "");
-                        if (c.Junkyard)
-                        {
-                            lines[i] += ",Junkyard";
-                        }
-                        if (c.Auction)
-                        {
-                            lines[i] += ",Auction";
-                        }
-                        if (c.Salon)
-                        {
-                            lines[i] += ",Salon";
-                        }
-                        if (c.Shed)
-                        {
-                            lines[i] += ",Shed";
-                        }
+                        lines[i] += ",Junkyard";
                     }
-                    i++;
+                    if (c.Auction)
+                    {
+                        lines[i] += ",Auction";
+                    }
+                    if (c.Salon)
+                    {
+                        lines[i] += ",Salon";
+                    }
+                    if (c.Shed)
+                    {
+                        lines[i] += ",Shed";
+                    }
                 }
-                File.WriteAllLines(c.Path, lines);
+                i++;
             }
+            File.WriteAllLines(c.Path, lines);
         }
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            foreach (var carpath in Directory.EnumerateDirectories(Properties.Settings.Default.GamePath))
+            if (!Directory.Exists(Properties.Settings.Default.GamePath))
+            {
+                FolderBrowserDialog fbd = new FolderBrowserDialog();
+                fbd.Description = "Select your Car Mechanic Simulator 2018 Installation Folder.";
+                if (fbd.ShowDialog() == DialogResult.OK)
+                {
+                    Properties.Settings.Default.GamePath = fbd.SelectedPath;
+                    Properties.Settings.Default.Save();
+                }
+            }
+            foreach (var carpath in Directory.EnumerateDirectories(Properties.Settings.Default.GamePath + "\\cms2018_Data\\StreamingAssets\\Cars\\"))
             {
                 string cp = carpath + "\\";
                 string name = File.ReadAllText(carpath + "\\name.txt");
@@ -125,6 +131,7 @@ namespace APU
             {
                 Car c = (lvwCars.SelectedItems[0].Tag as Car);
                 c.Auction = (sender as CheckBox).Checked;
+                SaveCar(c);
             }
         }
 
@@ -134,6 +141,7 @@ namespace APU
             {
                 Car c = (lvwCars.SelectedItems[0].Tag as Car);
                 c.Salon = (sender as CheckBox).Checked;
+                SaveCar(c);
             }
         }
 
@@ -143,6 +151,7 @@ namespace APU
             {
                 Car c = (lvwCars.SelectedItems[0].Tag as Car);
                 c.Junkyard = (sender as CheckBox).Checked;
+                SaveCar(c);
             }
         }
 
@@ -152,6 +161,95 @@ namespace APU
             {
                 Car c = (lvwCars.SelectedItems[0].Tag as Car);
                 c.Shed = (sender as CheckBox).Checked;
+                SaveCar(c);
+            }
+        }
+
+        private void tsbSalonAll_Click(object sender, EventArgs e)
+        {
+            foreach (var item in lvwCars.Items)
+            {
+                Car c = (item as ListViewItem).Tag as Car;
+                c.Salon = true;
+                SaveCar(c);
+                chkSalon.Checked = true;
+            }
+        }
+
+        private void tsbSalonNone_Click(object sender, EventArgs e)
+        {
+            foreach (var item in lvwCars.Items)
+            {
+                Car c = (item as ListViewItem).Tag as Car;
+                c.Salon = false;
+                SaveCar(c);
+                chkSalon.Checked = false;
+            }
+        }
+
+        private void tsbAuctionAll_Click(object sender, EventArgs e)
+        {
+            foreach (var item in lvwCars.Items)
+            {
+                Car c = (item as ListViewItem).Tag as Car;
+                c.Auction = true;
+                SaveCar(c);
+                chkAuction.Checked = true;
+            }
+        }
+
+        private void tsbAuctionNone_Click(object sender, EventArgs e)
+        {
+            foreach (var item in lvwCars.Items)
+            {
+                Car c = (item as ListViewItem).Tag as Car;
+                c.Auction = false;
+                SaveCar(c);
+                chkAuction.Checked = false;
+            }
+        }
+
+        private void tsbJunkyardAll_Click(object sender, EventArgs e)
+        {
+            foreach (var item in lvwCars.Items)
+            {
+                Car c = (item as ListViewItem).Tag as Car;
+                c.Junkyard = true;
+                SaveCar(c);
+                chkJunk.Checked = true;
+            }
+        }
+
+        private void tsbJunkyardNone_Click(object sender, EventArgs e)
+        {
+            foreach (var item in lvwCars.Items)
+            {
+                Car c = (item as ListViewItem).Tag as Car;
+                c.Junkyard = false;
+                SaveCar(c);
+                chkJunk.Checked = false;
+            }
+        }
+
+        private void tsbBarnsAll_Click(object sender, EventArgs e)
+        {
+            foreach (var item in lvwCars.Items)
+            {
+                Car c = (item as ListViewItem).Tag as Car;
+                c.Shed = true;
+                SaveCar(c);
+                chkShed.Checked = true;
+            }
+        }
+
+        private void tsbBarnsNone_Click(object sender, EventArgs e)
+        {
+            foreach (var item in lvwCars.Items)
+            {
+                Car c = (item as ListViewItem).Tag as Car;
+                c.Shed = false;
+                SaveCar(c);
+                chkShed.Checked = false;
             }
         }
     }
