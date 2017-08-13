@@ -10,3 +10,12 @@ C:\Users\Owner\Documents\Visual Studio 2017\Projects\AllowedPlacesUtility\Allowe
 C:\Users\Owner\Documents\Visual Studio 2017\Projects\AllowedPlacesUtility\AllowedPlacesUtility\bin\Release\AllowedPlaces Utility.pdb
 C:\Users\Owner\Documents\Visual Studio 2017\Projects\AllowedPlacesUtility\AllowedPlacesUtility\obj\Release\AllowedPlaces Utility.exe
 C:\Users\Owner\Documents\Visual Studio 2017\Projects\AllowedPlacesUtility\AllowedPlacesUtility\obj\Release\AllowedPlaces Utility.pdb
+C:\Users\Owner\Documents\apu\AllowedPlacesUtility\bin\Release\AllowedPlaces Utility.exe.config
+C:\Users\Owner\Documents\apu\AllowedPlacesUtility\bin\Release\AllowedPlaces Utility.exe
+C:\Users\Owner\Documents\apu\AllowedPlacesUtility\bin\Release\AllowedPlaces Utility.pdb
+C:\Users\Owner\Documents\apu\AllowedPlacesUtility\obj\Release\APU.FormMain.resources
+C:\Users\Owner\Documents\apu\AllowedPlacesUtility\obj\Release\APU.Properties.Resources.resources
+C:\Users\Owner\Documents\apu\AllowedPlacesUtility\obj\Release\AllowedPlacesUtility.csproj.GenerateResource.Cache
+C:\Users\Owner\Documents\apu\AllowedPlacesUtility\obj\Release\AllowedPlaces Utility.exe
+C:\Users\Owner\Documents\apu\AllowedPlacesUtility\obj\Release\AllowedPlaces Utility.pdb
+C:\Users\Owner\Documents\apu\AllowedPlacesUtility\obj\Release\AllowedPlacesUtility.csprojResolveAssemblyReference.cache

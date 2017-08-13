@@ -12,5 +12,6 @@ namespace APU
         public bool Junkyard { get; set; }
         public bool Salon { get; set; }
         public bool Shed { get; set; }
+        public decimal UniqueMod { get; set; }
     }
 }

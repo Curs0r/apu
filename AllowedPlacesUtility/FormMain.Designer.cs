@@ -50,9 +50,12 @@
             this.chkSalon = new System.Windows.Forms.CheckBox();
             this.chkAuction = new System.Windows.Forms.CheckBox();
             this.lblCarName = new System.Windows.Forms.Label();
+            this.nudUnique = new System.Windows.Forms.NumericUpDown();
+            this.lblUnique = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCarImage)).BeginInit();
             this.gbxPlaces.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudUnique)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -209,6 +212,8 @@
             // 
             // gbxPlaces
             // 
+            this.gbxPlaces.Controls.Add(this.lblUnique);
+            this.gbxPlaces.Controls.Add(this.nudUnique);
             this.gbxPlaces.Controls.Add(this.chkShed);
             this.gbxPlaces.Controls.Add(this.chkJunk);
             this.gbxPlaces.Controls.Add(this.chkSalon);
@@ -276,6 +281,34 @@
             this.lblCarName.Size = new System.Drawing.Size(0, 20);
             this.lblCarName.TabIndex = 13;
             // 
+            // nudUnique
+            // 
+            this.nudUnique.DecimalPlaces = 2;
+            this.nudUnique.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.nudUnique.Location = new System.Drawing.Point(109, 78);
+            this.nudUnique.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+            this.nudUnique.Name = "nudUnique";
+            this.nudUnique.Size = new System.Drawing.Size(58, 20);
+            this.nudUnique.TabIndex = 10;
+            this.nudUnique.ValueChanged += new System.EventHandler(this.nudUnique_ValueChanged);
+            // 
+            // lblUnique
+            // 
+            this.lblUnique.AutoSize = true;
+            this.lblUnique.Location = new System.Drawing.Point(20, 80);
+            this.lblUnique.Name = "lblUnique";
+            this.lblUnique.Size = new System.Drawing.Size(62, 13);
+            this.lblUnique.TabIndex = 11;
+            this.lblUnique.Text = "UniqueMod";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -297,6 +330,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbxCarImage)).EndInit();
             this.gbxPlaces.ResumeLayout(false);
             this.gbxPlaces.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudUnique)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -324,6 +358,8 @@
         private System.Windows.Forms.CheckBox chkSalon;
         private System.Windows.Forms.CheckBox chkAuction;
         private System.Windows.Forms.Label lblCarName;
+        private System.Windows.Forms.Label lblUnique;
+        private System.Windows.Forms.NumericUpDown nudUnique;
     }
 }
 

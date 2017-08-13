@@ -25,8 +25,7 @@ namespace APU.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Program Files (x86)\\Steam\\steamapps\\common\\Car Mechanic Simulator 2018\\cms2018" +
-            "_Data\\StreamingAssets\\Cars\\")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Program Files (x86)\\Steam\\steamapps\\common\\Car Mechanic Simulator 2018")]
         public string GamePath {
             get {
                 return ((string)(this["GamePath"]));

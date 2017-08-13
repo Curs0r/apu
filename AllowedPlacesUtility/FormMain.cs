@@ -20,6 +20,11 @@ namespace APU
             int i = 0;
             foreach (var line in lines)
             {
+                if (line.StartsWith("uniqueMod"))
+                {
+                    lines[i] = line.Substring(0, line.IndexOf("=") + 1);
+                    lines[i] += c.UniqueMod.ToString();
+                }
                 if (line.StartsWith("allowedPlaces"))
                 {
                     lines[i] = line.Replace("Junkyard", "").Replace("Auction", "").Replace("Shed", "").Replace("Salon", "").Replace(",", "");
@@ -57,7 +62,7 @@ namespace APU
                     Properties.Settings.Default.Save();
                 }
             }
-            foreach (var carpath in Directory.EnumerateDirectories(Properties.Settings.Default.GamePath + "\\cms2018_Data\\StreamingAssets\\Cars\\"))
+            foreach (var carpath in Directory.EnumerateDirectories(Properties.Settings.Default.GamePath + @"\cms2018_Data\StreamingAssets\Cars\"))
             {
                 string cp = carpath + "\\";
                 string name = File.ReadAllText(carpath + "\\name.txt");
@@ -71,6 +76,15 @@ namespace APU
                         if (line.StartsWith("carVersionName"))
                         {
                             c.Name = name + " " + line.Substring(line.IndexOf('=') + 1);
+                        }
+                        if (line.StartsWith("uniqueMod"))
+                        {
+                            decimal um = 0;
+                            decimal.TryParse(line.Substring(line.IndexOf('=') + 1), out um);
+                            if (um != 0)
+                            {
+                                c.UniqueMod = um;
+                            }
                         }
                         if (line.StartsWith("allowedPlaces"))
                         {
@@ -116,6 +130,7 @@ namespace APU
             if (view.SelectedIndices.Count > 0)
             {
                 Car c = (view.Items[view.SelectedIndices[0]].Tag as Car);
+                nudUnique.Value = c.UniqueMod;
                 chkAuction.Checked = c.Auction;
                 chkJunk.Checked = c.Junkyard;
                 chkSalon.Checked = c.Salon;
@@ -250,6 +265,16 @@ namespace APU
                 c.Shed = false;
                 SaveCar(c);
                 chkShed.Checked = false;
+            }
+        }
+
+        private void nudUnique_ValueChanged(object sender, EventArgs e)
+        {
+            if (lvwCars.SelectedItems.Count > 0)
+            {
+                Car c = (lvwCars.SelectedItems[0].Tag as Car);
+                c.UniqueMod = (sender as NumericUpDown).Value;
+                SaveCar(c);
             }
         }
     }
