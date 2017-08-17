@@ -45,13 +45,13 @@
             this.lvwCars = new System.Windows.Forms.ListView();
             this.pbxCarImage = new System.Windows.Forms.PictureBox();
             this.gbxPlaces = new System.Windows.Forms.GroupBox();
+            this.lblUnique = new System.Windows.Forms.Label();
+            this.nudUnique = new System.Windows.Forms.NumericUpDown();
             this.chkShed = new System.Windows.Forms.CheckBox();
             this.chkJunk = new System.Windows.Forms.CheckBox();
             this.chkSalon = new System.Windows.Forms.CheckBox();
             this.chkAuction = new System.Windows.Forms.CheckBox();
             this.lblCarName = new System.Windows.Forms.Label();
-            this.nudUnique = new System.Windows.Forms.NumericUpDown();
-            this.lblUnique = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCarImage)).BeginInit();
             this.gbxPlaces.SuspendLayout();
@@ -226,6 +226,34 @@
             this.gbxPlaces.TabStop = false;
             this.gbxPlaces.Text = "Allowed Places";
             // 
+            // lblUnique
+            // 
+            this.lblUnique.AutoSize = true;
+            this.lblUnique.Location = new System.Drawing.Point(20, 80);
+            this.lblUnique.Name = "lblUnique";
+            this.lblUnique.Size = new System.Drawing.Size(62, 13);
+            this.lblUnique.TabIndex = 11;
+            this.lblUnique.Text = "UniqueMod";
+            // 
+            // nudUnique
+            // 
+            this.nudUnique.DecimalPlaces = 2;
+            this.nudUnique.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.nudUnique.Location = new System.Drawing.Point(109, 78);
+            this.nudUnique.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.nudUnique.Name = "nudUnique";
+            this.nudUnique.Size = new System.Drawing.Size(58, 20);
+            this.nudUnique.TabIndex = 10;
+            this.nudUnique.ValueChanged += new System.EventHandler(this.nudUnique_ValueChanged);
+            // 
             // chkShed
             // 
             this.chkShed.AutoSize = true;
@@ -280,34 +308,6 @@
             this.lblCarName.Name = "lblCarName";
             this.lblCarName.Size = new System.Drawing.Size(0, 20);
             this.lblCarName.TabIndex = 13;
-            // 
-            // nudUnique
-            // 
-            this.nudUnique.DecimalPlaces = 2;
-            this.nudUnique.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.nudUnique.Location = new System.Drawing.Point(109, 78);
-            this.nudUnique.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            -2147483648});
-            this.nudUnique.Name = "nudUnique";
-            this.nudUnique.Size = new System.Drawing.Size(58, 20);
-            this.nudUnique.TabIndex = 10;
-            this.nudUnique.ValueChanged += new System.EventHandler(this.nudUnique_ValueChanged);
-            // 
-            // lblUnique
-            // 
-            this.lblUnique.AutoSize = true;
-            this.lblUnique.Location = new System.Drawing.Point(20, 80);
-            this.lblUnique.Name = "lblUnique";
-            this.lblUnique.Size = new System.Drawing.Size(62, 13);
-            this.lblUnique.TabIndex = 11;
-            this.lblUnique.Text = "UniqueMod";
             // 
             // FormMain
             // 
