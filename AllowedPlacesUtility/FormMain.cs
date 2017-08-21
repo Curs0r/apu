@@ -16,38 +16,54 @@ namespace APU
 
         private void SaveCar(Car c)
         {
-            string[] lines = File.ReadAllLines(c.Path);
-            int i = 0;
-            foreach (var line in lines)
+            if (File.Exists(c.Path))
             {
-                if (line.StartsWith("uniqueMod"))
+                string[] lines = File.ReadAllLines(c.Path);
+                int i = 0;
+                foreach (var line in lines)
                 {
-                    lines[i] = line.Substring(0, line.IndexOf("=") + 1);
-                    lines[i] += c.UniqueMod.ToString();
+                    if (line.ToLower().StartsWith("uniquemod"))
+                    {
+                        lines[i] = line.Substring(0, line.IndexOf("=") + 1);
+                        lines[i] += c.UniqueMod.ToString();
+                    }
+                    if (line.ToLower().StartsWith("allowedplaces"))
+                    {
+                        lines[i] = line
+                            .Replace("Junkyard", "")
+                            .Replace("Auction", "")
+                            .Replace("Shed", "")
+                            .Replace("Salon", "")
+                            .Replace("junkyard", "")
+                            .Replace("auction", "")
+                            .Replace("shed", "")
+                            .Replace("salon", "")
+                            .Replace(",", "");
+                        if (c.Junkyard)
+                        {
+                            lines[i] += ",Junkyard";
+                        }
+                        if (c.Auction)
+                        {
+                            lines[i] += ",Auction";
+                        }
+                        if (c.Salon)
+                        {
+                            lines[i] += ",Salon";
+                        }
+                        if (c.Shed)
+                        {
+                            lines[i] += ",Shed";
+                        }
+                    }
+                    i++;
                 }
-                if (line.StartsWith("allowedPlaces"))
-                {
-                    lines[i] = line.Replace("Junkyard", "").Replace("Auction", "").Replace("Shed", "").Replace("Salon", "").Replace(",", "");
-                    if (c.Junkyard)
-                    {
-                        lines[i] += ",Junkyard";
-                    }
-                    if (c.Auction)
-                    {
-                        lines[i] += ",Auction";
-                    }
-                    if (c.Salon)
-                    {
-                        lines[i] += ",Salon";
-                    }
-                    if (c.Shed)
-                    {
-                        lines[i] += ",Shed";
-                    }
-                }
-                i++;
+                File.WriteAllLines(c.Path, lines);
             }
-            File.WriteAllLines(c.Path, lines);
+            else
+            {
+                MessageBox.Show("Unable to save " + c.Path);
+            }
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -65,7 +81,11 @@ namespace APU
             foreach (var carpath in Directory.EnumerateDirectories(Properties.Settings.Default.GamePath + @"\cms2018_Data\StreamingAssets\Cars\"))
             {
                 string cp = carpath + "\\";
-                string name = File.ReadAllText(carpath + "\\name.txt");
+                string name = "Unnamed Car";
+                if (File.Exists(cp + "name.txt"))
+                {
+                    name = File.ReadAllText(cp + "name.txt");
+                }
                 foreach (var file in Directory.EnumerateFiles(cp, "config*.txt"))
                 {
                     Car c = new Car();
@@ -73,11 +93,11 @@ namespace APU
                     string[] cfg = File.ReadAllLines(file);
                     foreach (var line in cfg)
                     {
-                        if (line.StartsWith("carVersionName"))
+                        if (line.ToLower().StartsWith("carversionname"))
                         {
                             c.Name = name + " " + line.Substring(line.IndexOf('=') + 1);
                         }
-                        if (line.StartsWith("uniqueMod"))
+                        if (line.ToLower().StartsWith("uniquemod"))
                         {
                             decimal um = 0;
                             decimal.TryParse(line.Substring(line.IndexOf('=') + 1), out um);
@@ -86,23 +106,23 @@ namespace APU
                                 c.UniqueMod = um;
                             }
                         }
-                        if (line.StartsWith("allowedPlaces"))
+                        if (line.ToLower().StartsWith("allowedplaces"))
                         {
                             string[] places = line.Substring(line.IndexOf('=') + 1).Split(',');
                             foreach (var place in places)
                             {
-                                switch (place)
+                                switch (place.ToLower())
                                 {
-                                    case "Shed":
+                                    case "shed":
                                         c.Shed = true;
                                         break;
-                                    case "Junkyard":
+                                    case "junkyard":
                                         c.Junkyard = true;
                                         break;
-                                    case "Auction":
+                                    case "auction":
                                         c.Auction = true;
                                         break;
-                                    case "Salon":
+                                    case "salon":
                                         c.Salon = true;
                                         break;
                                     default:
