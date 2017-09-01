@@ -137,7 +137,7 @@ namespace APU
                     IEnumerable<string> files = Directory.EnumerateFiles(carpath + "\\PartThumb\\", "*-car*");
                     if (files.Count() > 0)
                     {
-                        c.Image = Image.FromFile(files.SingleOrDefault());
+                        c.Image = Image.FromFile(files.FirstOrDefault());
                     }
                     lvwCars.Items.Add(lvi);
                 }
