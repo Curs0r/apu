@@ -18,4 +18,4 @@ C:\Users\Owner\Documents\apu\AllowedPlacesUtility\obj\Release\APU.Properties.Res
 C:\Users\Owner\Documents\apu\AllowedPlacesUtility\obj\Release\AllowedPlacesUtility.csproj.GenerateResource.Cache
 C:\Users\Owner\Documents\apu\AllowedPlacesUtility\obj\Release\AllowedPlaces Utility.exe
 C:\Users\Owner\Documents\apu\AllowedPlacesUtility\obj\Release\AllowedPlaces Utility.pdb
-C:\Users\Owner\Documents\apu\AllowedPlacesUtility\obj\Release\AllowedPlacesUtility.csprojResolveAssemblyReference.cache
+C:\Users\Owner\Documents\apu\AllowedPlacesUtility\obj\Release\AllowedPlacesUtility.csproj.CoreCompileInputs.cache

@@ -15,3 +15,4 @@ C:\Users\Owner\Documents\apu\AllowedPlacesUtility\obj\Debug\APU.Properties.Resou
 C:\Users\Owner\Documents\apu\AllowedPlacesUtility\obj\Debug\AllowedPlacesUtility.csproj.GenerateResource.Cache
 C:\Users\Owner\Documents\apu\AllowedPlacesUtility\obj\Debug\AllowedPlaces Utility.exe
 C:\Users\Owner\Documents\apu\AllowedPlacesUtility\obj\Debug\AllowedPlaces Utility.pdb
+C:\Users\Owner\Documents\apu\AllowedPlacesUtility\obj\Debug\AllowedPlacesUtility.csproj.CoreCompileInputs.cache

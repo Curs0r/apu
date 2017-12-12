@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -65,19 +66,63 @@ namespace APU
                 MessageBox.Show("Unable to save " + c.Path);
             }
         }
-
-        private void FormMain_Load(object sender, EventArgs e)
+        private void FoundCar(string file,string name, string carpath)
         {
-            if (!Directory.Exists(Properties.Settings.Default.GamePath))
+            Car c = new Car();
+            c.Path = file;
+            string[] cfg = File.ReadAllLines(file);
+            foreach (var line in cfg)
             {
-                FolderBrowserDialog fbd = new FolderBrowserDialog();
-                fbd.Description = "Select your Car Mechanic Simulator 2018 Installation Folder.";
-                if (fbd.ShowDialog() == DialogResult.OK)
+                if (line.ToLower().StartsWith("carversionname"))
                 {
-                    Properties.Settings.Default.GamePath = fbd.SelectedPath;
-                    Properties.Settings.Default.Save();
+                    c.Name = name + " " + line.Substring(line.IndexOf('=') + 1);
+                }
+                if (line.ToLower().StartsWith("uniquemod"))
+                {
+                    decimal um = 0;
+                    decimal.TryParse(line.Substring(line.IndexOf('=') + 1), out um);
+                    if (um != 0)
+                    {
+                        c.UniqueMod = um;
+                    }
+                }
+                if (line.ToLower().StartsWith("allowedplaces"))
+                {
+                    string[] places = line.Substring(line.IndexOf('=') + 1).Split(',');
+                    foreach (var place in places)
+                    {
+                        switch (place.ToLower())
+                        {
+                            case "shed":
+                                c.Shed = true;
+                                break;
+                            case "junkyard":
+                                c.Junkyard = true;
+                                break;
+                            case "auction":
+                                c.Auction = true;
+                                break;
+                            case "salon":
+                                c.Salon = true;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
                 }
             }
+            ListViewItem lvi = new ListViewItem();
+            lvi.Text = c.Name;
+            lvi.Tag = c;
+            IEnumerable<string> files = Directory.EnumerateFiles(carpath + "\\PartThumb\\", "*-car*");
+            if (files.Count() > 0)
+            {
+                c.Image = Image.FromFile(files.FirstOrDefault());
+            }
+            lvwCars.Items.Add(lvi);
+        }
+        private void FormMain_Load(object sender, EventArgs e)
+        {
             foreach (var carpath in Directory.EnumerateDirectories(Properties.Settings.Default.GamePath + @"\cms2018_Data\StreamingAssets\Cars\"))
             {
                 string cp = carpath + "\\";
@@ -88,58 +133,23 @@ namespace APU
                 }
                 foreach (var file in Directory.EnumerateFiles(cp, "config*.txt"))
                 {
-                    Car c = new Car();
-                    c.Path = file;
-                    string[] cfg = File.ReadAllLines(file);
-                    foreach (var line in cfg)
+                    FoundCar(file, name, carpath);
+                }
+            }
+            if (Directory.Exists(Properties.Settings.Default.ShopPath))
+            {
+                foreach (var carpath in Directory.EnumerateDirectories(Properties.Settings.Default.ShopPath))
+                {
+                    string cp = carpath + "\\";
+                    string name = "Unnamed Car";
+                    if (File.Exists(cp + "name.txt"))
                     {
-                        if (line.ToLower().StartsWith("carversionname"))
-                        {
-                            c.Name = name + " " + line.Substring(line.IndexOf('=') + 1);
-                        }
-                        if (line.ToLower().StartsWith("uniquemod"))
-                        {
-                            decimal um = 0;
-                            decimal.TryParse(line.Substring(line.IndexOf('=') + 1), out um);
-                            if (um != 0)
-                            {
-                                c.UniqueMod = um;
-                            }
-                        }
-                        if (line.ToLower().StartsWith("allowedplaces"))
-                        {
-                            string[] places = line.Substring(line.IndexOf('=') + 1).Split(',');
-                            foreach (var place in places)
-                            {
-                                switch (place.ToLower())
-                                {
-                                    case "shed":
-                                        c.Shed = true;
-                                        break;
-                                    case "junkyard":
-                                        c.Junkyard = true;
-                                        break;
-                                    case "auction":
-                                        c.Auction = true;
-                                        break;
-                                    case "salon":
-                                        c.Salon = true;
-                                        break;
-                                    default:
-                                        break;
-                                }
-                            }
-                        }
+                        name = File.ReadAllText(cp + "name.txt");
                     }
-                    ListViewItem lvi = new ListViewItem();
-                    lvi.Text = c.Name;
-                    lvi.Tag = c;
-                    IEnumerable<string> files = Directory.EnumerateFiles(carpath + "\\PartThumb\\", "*-car*");
-                    if (files.Count() > 0)
+                    foreach (var file in Directory.EnumerateFiles(cp, "config*.txt"))
                     {
-                        c.Image = Image.FromFile(files.FirstOrDefault());
+                        FoundCar(file, name, carpath);
                     }
-                    lvwCars.Items.Add(lvi);
                 }
             }
         }

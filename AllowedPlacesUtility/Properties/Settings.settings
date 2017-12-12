@@ -5,5 +5,8 @@
     <Setting Name="GamePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\Program Files (x86)\Steam\steamapps\common\Car Mechanic Simulator 2018</Value>
     </Setting>
+    <Setting Name="ShopPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Program Files (x86)\Steam\steamapps\workshop\content\645630</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
