@@ -16,3 +16,13 @@ C:\Users\Owner\Documents\apu\AllowedPlacesUtility\obj\Debug\AllowedPlacesUtility
 C:\Users\Owner\Documents\apu\AllowedPlacesUtility\obj\Debug\AllowedPlaces Utility.exe
 C:\Users\Owner\Documents\apu\AllowedPlacesUtility\obj\Debug\AllowedPlaces Utility.pdb
 C:\Users\Owner\Documents\apu\AllowedPlacesUtility\obj\Debug\AllowedPlacesUtility.csproj.CoreCompileInputs.cache
+C:\Users\Owner\Documents\apub\AllowedPlacesUtility\bin\Debug\AllowedPlaces Utility.exe.config
+C:\Users\Owner\Documents\apub\AllowedPlacesUtility\bin\Debug\AllowedPlaces Utility.exe
+C:\Users\Owner\Documents\apub\AllowedPlacesUtility\bin\Debug\AllowedPlaces Utility.pdb
+C:\Users\Owner\Documents\apub\AllowedPlacesUtility\obj\Debug\AllowedPlacesUtility.csprojAssemblyReference.cache
+C:\Users\Owner\Documents\apub\AllowedPlacesUtility\obj\Debug\APU.FormMain.resources
+C:\Users\Owner\Documents\apub\AllowedPlacesUtility\obj\Debug\APU.Properties.Resources.resources
+C:\Users\Owner\Documents\apub\AllowedPlacesUtility\obj\Debug\AllowedPlacesUtility.csproj.GenerateResource.cache
+C:\Users\Owner\Documents\apub\AllowedPlacesUtility\obj\Debug\AllowedPlacesUtility.csproj.CoreCompileInputs.cache
+C:\Users\Owner\Documents\apub\AllowedPlacesUtility\obj\Debug\AllowedPlaces Utility.exe
+C:\Users\Owner\Documents\apub\AllowedPlacesUtility\obj\Debug\AllowedPlaces Utility.pdb
