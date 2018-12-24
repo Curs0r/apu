@@ -114,10 +114,13 @@ namespace APU
             ListViewItem lvi = new ListViewItem();
             lvi.Text = c.Name;
             lvi.Tag = c;
-            IEnumerable<string> files = Directory.EnumerateFiles(carpath + "\\PartThumb\\", "*-car*");
-            if (files.Count() > 0)
+            if (Directory.Exists(carpath + "\\PartThumb"))
             {
-                c.Image = Image.FromFile(files.FirstOrDefault());
+                IEnumerable<string> files = Directory.EnumerateFiles(carpath + "\\PartThumb\\", "*-car*");
+                if (files.Count() > 0)
+                {
+                    c.Image = Image.FromFile(files.FirstOrDefault());
+                }
             }
             lvwCars.Items.Add(lvi);
         }
