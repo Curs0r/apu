@@ -124,7 +124,7 @@ namespace APU
             }
             else
             {
-                c.Image = Image.FromFile("notfound.jpg");
+                c.Image = Properties.Resources.notfound;
             }
             lvwCars.Items.Add(lvi);
         }
