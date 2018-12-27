@@ -114,18 +114,7 @@ namespace APU
             ListViewItem lvi = new ListViewItem();
             lvi.Text = c.Name;
             lvi.Tag = c;
-            if (Directory.Exists(carpath + "\\PartThumb"))
-            {
-                IEnumerable<string> files = Directory.EnumerateFiles(carpath + "\\PartThumb\\", "*-car*");
-                if (files.Count() > 0)
-                {
-                    c.Image = Image.FromFile(files.FirstOrDefault());
-                }
-            }
-            else
-            {
-                c.Image = Image.FromFile("notfound.jpg");
-            }
+
             lvwCars.Items.Add(lvi);
         }
         private void FormMain_Load(object sender, EventArgs e)
@@ -172,7 +161,7 @@ namespace APU
                 chkJunk.Checked = c.Junkyard;
                 chkSalon.Checked = c.Salon;
                 chkShed.Checked = c.Shed;
-                pbxCarImage.Image = c.Image;
+                //pbxCarImage.Image = c.Image;
                 lblCarName.Text = c.Name;
             }
         }

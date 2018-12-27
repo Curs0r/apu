@@ -43,7 +43,6 @@
             this.tsbBarnsAll = new System.Windows.Forms.ToolStripButton();
             this.tsbBarnsNone = new System.Windows.Forms.ToolStripButton();
             this.lvwCars = new System.Windows.Forms.ListView();
-            this.pbxCarImage = new System.Windows.Forms.PictureBox();
             this.gbxPlaces = new System.Windows.Forms.GroupBox();
             this.lblUnique = new System.Windows.Forms.Label();
             this.nudUnique = new System.Windows.Forms.NumericUpDown();
@@ -53,7 +52,6 @@
             this.chkAuction = new System.Windows.Forms.CheckBox();
             this.lblCarName = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxCarImage)).BeginInit();
             this.gbxPlaces.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudUnique)).BeginInit();
             this.SuspendLayout();
@@ -200,16 +198,6 @@
             this.lvwCars.View = System.Windows.Forms.View.List;
             this.lvwCars.SelectedIndexChanged += new System.EventHandler(this.lvwCars_SelectedIndexChanged);
             // 
-            // pbxCarImage
-            // 
-            this.pbxCarImage.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pbxCarImage.Location = new System.Drawing.Point(0, 117);
-            this.pbxCarImage.Name = "pbxCarImage";
-            this.pbxCarImage.Size = new System.Drawing.Size(312, 173);
-            this.pbxCarImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxCarImage.TabIndex = 11;
-            this.pbxCarImage.TabStop = false;
-            // 
             // gbxPlaces
             // 
             this.gbxPlaces.Controls.Add(this.lblUnique);
@@ -218,10 +206,10 @@
             this.gbxPlaces.Controls.Add(this.chkJunk);
             this.gbxPlaces.Controls.Add(this.chkSalon);
             this.gbxPlaces.Controls.Add(this.chkAuction);
-            this.gbxPlaces.Dock = System.Windows.Forms.DockStyle.Right;
-            this.gbxPlaces.Location = new System.Drawing.Point(318, 117);
+            this.gbxPlaces.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbxPlaces.Location = new System.Drawing.Point(0, 117);
             this.gbxPlaces.Name = "gbxPlaces";
-            this.gbxPlaces.Size = new System.Drawing.Size(200, 173);
+            this.gbxPlaces.Size = new System.Drawing.Size(518, 173);
             this.gbxPlaces.TabIndex = 12;
             this.gbxPlaces.TabStop = false;
             this.gbxPlaces.Text = "Allowed Places";
@@ -316,7 +304,6 @@
             this.ClientSize = new System.Drawing.Size(518, 290);
             this.Controls.Add(this.lblCarName);
             this.Controls.Add(this.gbxPlaces);
-            this.Controls.Add(this.pbxCarImage);
             this.Controls.Add(this.lvwCars);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -327,7 +314,6 @@
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxCarImage)).EndInit();
             this.gbxPlaces.ResumeLayout(false);
             this.gbxPlaces.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudUnique)).EndInit();
@@ -351,7 +337,6 @@
         private System.Windows.Forms.ToolStripButton tsbBarnsAll;
         private System.Windows.Forms.ToolStripButton tsbBarnsNone;
         private System.Windows.Forms.ListView lvwCars;
-        private System.Windows.Forms.PictureBox pbxCarImage;
         private System.Windows.Forms.GroupBox gbxPlaces;
         private System.Windows.Forms.CheckBox chkShed;
         private System.Windows.Forms.CheckBox chkJunk;
